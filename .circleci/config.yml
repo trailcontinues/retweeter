@@ -25,23 +25,23 @@ jobs:
     steps:
       - install
       - run: node index.js
+      
+parameters:
+  run-schedule:
+    type: boolean
+    default: false
 
 workflows:
   version: 2
 
   test:
     jobs:
+     when:
+      not: << pipeline.parameters.run-schedule >>
       - retweet
 
   poll:
-    triggers:
-      - schedule:
-          # Every day at EST 12:00PM (UTC 17:00PM)
-          cron: "0 8 * * *"
-          filters:
-            branches:
-              only:
-                - master
+    when: << pipeline.parameters.run-schedule >>
     jobs:
       - retweet
       
