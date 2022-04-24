@@ -37,7 +37,7 @@ workflows:
     triggers:
       - schedule:
           # Every day at EST 12:00PM (UTC 17:00PM)
-          cron: "0 6 * * *"
+          cron: "0 8 * * *"
           filters:
             branches:
               only:
