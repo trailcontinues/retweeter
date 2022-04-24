@@ -37,7 +37,7 @@ workflows:
   test:
      when:
       not: << pipeline.parameters.run-schedule >>
-      jobs:
+     jobs:
       - retweet
 
   poll:
