@@ -29,14 +29,13 @@ jobs:
 parameters:
   run-schedule:
     type: boolean
-    default: true
+    default: false
 
 workflows:
-  version: 2
 
   test:
      when:
-      not: << pipeline.parameters.run-schedule >>
+       not: << pipeline.parameters.run-schedule >>
      jobs:
       - retweet
 
