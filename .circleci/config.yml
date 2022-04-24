@@ -32,7 +32,6 @@ parameters:
     default: false
 
 workflows:
-
   test:
      when:
        not: << pipeline.parameters.run-schedule >>
